@@ -13,10 +13,9 @@ export const useFetch = (fetchFunction, params) => {
                 setIsLoading(true);
                 const result = await fetchFunction(params);
                 setData(result);
+                result?.status == 'ok' ? setIsLoading(false) : setIsLoading(true);
             } catch (error) {
                 setError(error);
-            } finally {
-                data?.status == 'ok' ? setIsLoading(false) : setIsLoading(true);
             }
         })();
     }, [fetchFunction, stringParams])
