@@ -27,7 +27,6 @@ export const getCategories = async () => {
                 apiKey: API_KEY,
             }
         })
-
         return response.data;
     } catch (error) {
         console.error(error);
