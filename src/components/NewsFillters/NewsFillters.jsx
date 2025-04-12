@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { getCategories } from '../../api/apiNews';
 import { useFetch } from '../../helpers/hooks/useFetch';
 import Categories from '../Categories/Categories';
