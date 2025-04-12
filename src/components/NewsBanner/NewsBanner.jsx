@@ -15,7 +15,5 @@ const NewsBanner = ( {item} ) => {
   )
 }
 
-const NewsBannerWithSkeleton = withSceleton(NewsBanner, 'banner', 1);
 
-
-export default NewsBannerWithSkeleton;
+export default NewsBanner;
