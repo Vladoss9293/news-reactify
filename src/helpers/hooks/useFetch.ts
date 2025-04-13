@@ -25,9 +25,11 @@ export const useFetch = <T, P>(
       try {
         setIsLoading(true);
         const result = await fetchFunction(params);
+
         setData(result);
-        // result?.status == "ok" ? setIsLoading(false) : setIsLoading(true);
+        setIsLoading(false);
       } catch (error) {
+        setIsLoading(true);
         setError(error as Error);
       }
     })();
