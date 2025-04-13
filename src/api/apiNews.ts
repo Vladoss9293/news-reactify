@@ -31,8 +31,7 @@ export const getNews = async (
 
     return response.data;
   } catch (error) {
-    console.error(error);
-    return { news: [], page: 1, status: "error" };
+    throw new Error('Ошибка загрузки');
   }
 };
 export const getLatestNews = async (): Promise<NewsApiResponse> => {
@@ -47,8 +46,7 @@ export const getLatestNews = async (): Promise<NewsApiResponse> => {
     );
     return response.data;
   } catch (error) {
-    console.error(error);
-    return { news: [], page: 1, status: "error" };
+    throw new Error('Ошибка загрузки');
   }
 };
 export const getCategories = async (): Promise<CategoriesApiResponse> => {
@@ -63,8 +61,6 @@ export const getCategories = async (): Promise<CategoriesApiResponse> => {
     );
     return response.data;
   } catch (error) {
-    return { categories: [], description: "", status: "error" };
-
-    console.error(error);
+    throw new Error('Ошибка загрузки');
   }
 };
