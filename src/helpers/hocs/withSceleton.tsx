@@ -4,6 +4,7 @@ import { DirectionType, SceletonType } from "../../interfaces";
 
 interface Props {
   isLoading: boolean;
+  isError: boolean;
 }
 
 function withSceleton<P extends object>(
@@ -13,9 +14,9 @@ function withSceleton<P extends object>(
   direction?: DirectionType
 ) {
   return function WithSceleton(props: Props & P) {
-    const { isLoading, ...restProps } = props;
+    const { isLoading, isError, ...restProps } = props;
 
-    if (isLoading) {
+    if (isLoading || isError) {
       return <Sceleton type={type} count={count} direction={direction} />;
     }
 
